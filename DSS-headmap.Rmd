@@ -1,0 +1,40 @@
+---
+title: "DSS"
+output: html_document
+---
+
+```
+
+## R Markdown
+
+cause=unique(fire_cause)
+```{r cause}
+library(dplyr)
+traindata<-data.frame(cause=data$STAT_CAUSE_DESCR,state=data$STATE,year=data$FIRE_YEAR)
+res <- traindata %>% group_by(cause,state,year) %>% summarise(Freq=n())
+#res1<-res[res$state=='CA',]
+```
+
+```{r cause}
+library(ggplot2)
+matrix1<-table(res$cause,res$year)
+# The mtcars dataset:
+matrix1<- as.matrix(matrix1)
+# Default Heatmap
+col<- colorRampPalette(c("red","tomato","salmon","tan1","yellow"))(256)
+heatmap(matrix1, Colv = NA, Rowv = NA, col=col,scale="column",xlab = "years",main = "what causes the fire?")  
+#col<- colorRampPalette(c("red", "white", "blue"))(256)
+```
+
+## Including Plots
+```{R}
+matrix2<-table(res$cause,res$state)
+# The mtcars dataset:
+matrix2<- as.matrix(matrix2)
+# Default Heatmap
+col<- colorRampPalette(c("mediumpurple1", "turquoise","cadetblue1" ,"yellow"))(256)
+
+col<- colorRampPalette(c("red","tomato","salmon","tan1","yellow","khaki1"))(256)
+heatmap(matrix2, Colv = NA, Rowv = NA, col=col,scale="column",xlab = "state",main = "what causes the fire for each state?")  
+```
+
