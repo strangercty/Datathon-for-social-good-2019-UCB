@@ -11,3 +11,7 @@ Statement: Wildfire has caused great inconvenience for our daily life, especiall
 
 Solution:
 We explored the historical data from Kaggle(the wildfire records in U.S. from 1999 to 2015) and then checked the distribution of wildfire regarding to causes, scale and duration in different regions. In this competition, we mainly focused on the wildfire happened in California and then established two multi-class classification models based on XGBoost and SVM respectively for the prediction of wildfire scale and duration.
+
+
+https://docs.google.com/presentation/d/14LV47Vjo9k09LQmbaFMvb9gwFk9D0Hif/edit#slide=id.p6
+
